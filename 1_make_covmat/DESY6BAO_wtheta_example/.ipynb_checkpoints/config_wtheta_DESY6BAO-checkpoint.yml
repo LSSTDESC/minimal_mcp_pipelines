@@ -1,0 +1,31 @@
+tjpcov:
+  sacc_file: wtheta_sacc/wtheta_DESY6BAO.fits
+
+  cosmo: cosmo_planck.yaml
+
+  # allowed covariance type: gauss, ng (to be implemented)
+  cov_type: [RealGaussianFsky]
+
+  IA: 0
+
+  # outdir: tests/tmp/
+
+  # Survey params:
+
+  # 6 redshift bins
+  {% for i, val in [(0, 0.1856), (1, 0.2123), (2, 0.2534), (3, 0.2213), (4, 0.1139), (5, 0.0495)] %}
+  Ngal_lens{{ i }}: {{ val }} # arc_min^-2
+  {% endfor %}
+  
+  # linear bias
+  {% for i, val in [(0, 1.801), (1, 1.805), (2, 1.813), (3, 1.957), (4, 2.113), (5, 2.413)] %}
+  bias_lens{{ i }}: {{ val }}
+  {% endfor %}
+  
+  use_mpi: True
+
+  fsky: 0.10359
+
+ProjectedReal:
+  lmax: 50000
+  binning: linear # it should match the binning in theta used when creating the SACC file: either linear or log
