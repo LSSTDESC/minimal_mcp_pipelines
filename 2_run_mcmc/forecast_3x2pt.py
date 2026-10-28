@@ -15,7 +15,7 @@ from firecrown.likelihood.two_point import TwoPoint
 from firecrown.likelihood.gaussian import ConstGaussian
 from firecrown.parameters import ParamsMap
 from firecrown.modeling_tools import ModelingTools
-from firecrown.likelihood.likelihood import Likelihood
+from firecrown.likelihood import Likelihood
 
 saccfile = os.path.expanduser(
     os.path.expandvars(
